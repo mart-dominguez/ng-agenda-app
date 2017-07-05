@@ -6,7 +6,8 @@ import { TareaService } from '../tarea.service';
 @Component({
   selector: 'app-tarea-lista',
   templateUrl: './tarea-lista.component.html',
-  styleUrls: ['./tarea-lista.component.css']
+  styleUrls: ['./tarea-lista.component.css'],
+  providers:[TareaService]
 })
 export class TareaListaComponent implements OnInit {
   listaTarea:Tarea[];
