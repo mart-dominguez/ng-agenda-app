@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarea } from '../tarea.model';
+import { TareaService } from '../tarea.service';
 
-const TareasDB: Tarea[] = [
-  new Tarea(11, 'Hacer algo'),
-  new Tarea(12, 'otra cosa'),
-  new Tarea(13, 'terminar x'),
-  new Tarea(14, 'probar z'),
-  new Tarea(15, 'tarea ww'),
-  new Tarea(16, 'No olvidar j')
-];
 
 @Component({
   selector: 'app-tarea-lista',
@@ -18,8 +11,8 @@ const TareasDB: Tarea[] = [
 export class TareaListaComponent implements OnInit {
   listaTarea:Tarea[];
   
-  constructor() { 
-    this.listaTarea = TareasDB;
+  constructor(tareaService:TareaService) { 
+    this.listaTarea = tareaService.listarTareas();
   }
 
   ngOnInit() {
