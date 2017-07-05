@@ -13,7 +13,10 @@ const TareasDB: Tarea[] = [
 @Injectable()
 export class TareaService {
 
-  constructor() { }
+  private tareasLista: Tarea[];
+  constructor() { 
+    this.tareasLista = TareasDB;
+  }
 
   listarTareas():Tarea[]{
     return TareasDB;
@@ -24,7 +27,18 @@ export class TareaService {
   }
 
   agregarTarea(t:Tarea){
-    TareasDB.push(t);
+    var newArray = this.tareasLista.slice();
+    newArray.push(t);
+    this.tareasLista = newArray;
+  }
+
+  actualizarTarea(t:Tarea){
+     let newArray = this.tareasLista.slice();
+     let indiceActualizar = newArray.findIndex(function(elemento){return elemento.id===t.id;});
+
+     newArray.splice(indiceActualizar,0,t);
+     this.tareasLista=newArray;
+     console.log(TareasDB);
   }
 
 }

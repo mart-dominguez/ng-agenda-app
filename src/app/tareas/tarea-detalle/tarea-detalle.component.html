@@ -1,4 +1,9 @@
-<li>
-  <span ng-class="estilo1">{{tarea.id}}</span>
-  <span ng-class="estilo2">{{tarea.nombre}}</span>
+<li *ngIf="!editarTarea">
+  <span [ngClass]="estilo1">{{tarea.id}}</span>
+  <span [ngClass]="estilo2">{{tarea.nombre}}</span>  
+  <span *ngIf="tarea.terminada">Tarea Terminada!!!!</span>
+  <button (click)="editar()">Editar</button>
+</li>
+<li *ngIf="editarTarea">
+  <app-tarea-editable  (onTerminada)="onTerminada($event)" [tarea]="tarea"></app-tarea-editable>
 </li>

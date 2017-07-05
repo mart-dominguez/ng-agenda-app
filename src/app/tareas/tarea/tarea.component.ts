@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-tarea',
@@ -11,5 +11,15 @@ export class TareaComponent implements OnInit {
 
   ngOnInit() {
   }
+ 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log("NG CHANGE TAREA");
+    for (let propName in changes) {
+      let chng = changes[propName];
+      let cur  = JSON.stringify(chng.currentValue);
+      let prev = JSON.stringify(chng.previousValue);
+      console.log(propName+": currentValue = "+cur+", previousValue = "+prev);
+    }
+  } 
 
 }

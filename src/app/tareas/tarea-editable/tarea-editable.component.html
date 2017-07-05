@@ -1,3 +1,15 @@
-<p>
-  tarea-editable works!
-</p>
+  <div>{{tarea.nombre}} </div>
+  <div>
+    <input type="checkbox"  [checked]="tarea.terminada" (change)="terminar()" />
+  </div>
+  <h2>{{titulo}}</h2>
+  <div>
+    <p>e (no formatting): {{e1}}</p>
+    <p>e (3.1-5): {{e1 | number:'3.1-5'}}</p>
+    <p>pi (no formatting): {{pi1}}</p>
+    <p>pi (3.5-5): {{pi1 | number:'3.5-5'}}</p>
+     <p>A: {{a | currency:'USD':false}}</p>
+    <p>B: {{b | currency:'USD':true:'4.2-2'}}</p>
+    <p>C: {{c | currency:'USD':true:'4.2-2'}}</p>
+    <p>D: {{d | currency:'USD':true:'4.2-2'}}</p>
+  </div>
